@@ -1,0 +1,3 @@
+#!D:\kuangjia\venv\Scripts\python.exe
+from now.main import main
+main()
