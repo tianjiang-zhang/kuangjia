@@ -3,10 +3,10 @@ from lib2to3.pgen2 import driver
 from selenium import webdriver
 import unittest,time
 from time import sleep
-from data.pian_data import fenlei
-from data.pian_data import plan_data
-from public.Denglu import Deng_lu
-from public.Screen_shot import Screenshot
+from web_test.data.pian_data import fenlei
+from web_test.data.pian_data import plan_data
+from web_test.public.Denglu import Deng_lu
+from web_test.public.Screen_shot import Screenshot
 class Plan_ccase(unittest.TestCase):
     u"""方案"""
     @classmethod

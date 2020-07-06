@@ -3,10 +3,10 @@ import unittest,time
 from time import sleep
 import verify
 from assertpy import assert_that
-from data.pian_data import fenlei
+from web_test.data.pian_data import fenlei
 from collections.abc import Iterable
 import ssl
-from public.Denglu import Deng_lu
+from web_test.public.Denglu import Deng_lu
 from selenium.webdriver.common.keys import Keys
 
 

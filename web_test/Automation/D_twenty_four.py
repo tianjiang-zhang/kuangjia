@@ -4,16 +4,14 @@
 from selenium import webdriver
 import unittest,time
 from time import sleep
-from data.The_login_data import the_Login
-from public.Denglu import Deng_lu
-from data.search_data import Search
+from web_test.data.The_login_data import the_Login
+from web_test.public.Denglu import Deng_lu
+from web_test.data.search_data import Search
 import re
-import time,HTMLTestRunner
-
-from public.Screen_shot import Screenshot
+from web_test.public.Screen_shot import Screenshot
 
 
-class Search_c(unittest.TestCase):
+class Search_a(unittest.TestCase):
     u"""全视频检索"""
     driver = webdriver.Firefox()
     def setUp(self):
@@ -21,8 +19,8 @@ class Search_c(unittest.TestCase):
         dr.get("http://t.yqboom.com")
     #
     # @unittest.skip('test_search_1')
-    def test_1search_c(self):
-        u"""大搜索，使用关键字搜索后查看“近7天”各来源是否显示视频数据"""
+    def test_1search_a(self):
+        u"""大搜索，使用关键字搜索后查看“24小时内”各来源是否显示视频数据"""
         deng_lu = Deng_lu(self.driver)
         deng_lu.denglu()
         sleep(10)
@@ -36,7 +34,7 @@ class Search_c(unittest.TestCase):
         self.driver.find_element_by_xpath(Search['搜索按钮'][0]).click()
         sleep(5)
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_xpath(Search['近7天'][0]).click()
+        self.driver.find_element_by_xpath(Search['24小时'][0]).click()
         sleep(4)
         self.driver.implicitly_wait(30)
         doy = self.driver.find_element_by_xpath(Search['D抖音视频数'][0]).text
@@ -72,18 +70,5 @@ class Search_c(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
 
-
-if __name__ == '__main__':
-    # unittest.main()
-    suite = unittest.makeSuite(Search_c)
-    now = time.strftime("%Y-%m-%d %H_%M_%S", time.localtime())
-    filename = "D:\\kuangjia\\report\\"+now+"_result.html"
-    fp = open(filename, 'wb')
-    runner = HTMLTestRunner.HTMLTestRunner(
-            stream=fp,
-            title=u'ALIEN测试报告',
-            description=u'ALIEN用例执行情况：')
-
-    runner.run(suite)
-    # 关闭文件流，不关的话生成的报告是空的
-    fp.close()
+if __name__ == "__main__":
+    unittest.main()

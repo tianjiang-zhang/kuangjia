@@ -6,7 +6,7 @@ import unittest,time
 from time import sleep
 
 
-from data.The_login_data import the_Login
+from web_test.data.The_login_data import the_Login
 class The_login2(unittest.TestCase):
     u"""登录"""
     driver = webdriver.Firefox()

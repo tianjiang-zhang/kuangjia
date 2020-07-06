@@ -4,11 +4,11 @@
 from selenium import webdriver
 import unittest,time
 from time import sleep
-from data.The_login_data import the_Login
-from public.Denglu import Deng_lu
-from data.search_data import Search
+from web_test.data.The_login_data import the_Login
+from web_test.public.Denglu import Deng_lu
+from web_test.data.search_data import Search
 import re
-from public.Screen_shot import Screenshot
+from web_test.public.Screen_shot import Screenshot
 
 
 class Search_(unittest.TestCase):

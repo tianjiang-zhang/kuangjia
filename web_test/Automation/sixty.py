@@ -4,14 +4,14 @@
 from selenium import webdriver
 import unittest,time
 from time import sleep
-from data.The_login_data import the_Login
-from public.Denglu import Deng_lu
-from data.search_data import Search
+from web_test.data.The_login_data import the_Login
+from web_test.public.Denglu import Deng_lu
+from web_test.data.search_data import Search
 import re
-from public.Screen_shot import Screenshot
+from web_test.public.Screen_shot import Screenshot
 from selenium.webdriver import ActionChains
 
-class Xearch_c(unittest.TestCase):
+class Xearch_e(unittest.TestCase):
     u"""舆情监测"""
     driver = webdriver.Firefox()
     def setUp(self):
@@ -19,8 +19,8 @@ class Xearch_c(unittest.TestCase):
         dr.get("http://t.yqboom.com")
     #
     # @unittest.skip('test_search_1')
-    def test_3search(self):
-        u"""小搜索，使用关键字搜索后查看：时间范围“近7天”是否显示视频数据"""
+    def test_5search(self):
+        u"""小搜索，使用关键字搜索后查看：时间范围“近60天”是否显示视频数据"""
         deng_lu = Deng_lu(self.driver)
         deng_lu.denglu()
         sleep(10)
@@ -34,7 +34,7 @@ class Xearch_c(unittest.TestCase):
         self.driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[3]/span[2]/ul/li[2]/ul/div[1]/li/div/span[3]').click()
         # 获取到“抖音视频数”并截取数字
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_xpath(Search['x近7天'][0]).click()
+        self.driver.find_element_by_xpath(Search['x近60天'][0]).click()
         self.driver.implicitly_wait(30)
         doy = self.driver.find_element_by_xpath(Search['x抖音视频数'][0]).text
         print(re.findall(r"\d+\.?\d*", doy))
